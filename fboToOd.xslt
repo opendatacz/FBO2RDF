@@ -26,6 +26,8 @@
 
 	<xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes"/>
 
+	<xsl:param name="baseURI">http://ld.opendata.cz/resource/</xsl:param>
+	
 	<xsl:template match="/">
 		<rdf:RDF>
 			<xsl:apply-templates select="NOTICES"/>
@@ -140,17 +142,30 @@
 			</xsl:if>
 			
 			<xsl:call-template name="processDescriptionContractInformation"/>
-			<xsl:apply-templates select="DATE"/>
+			<xsl:apply-templates select="DATE|CLASSCOD"/>
 		</pc:Contract>
 	</xsl:template>
 	
 	<xsl:template match="DATE">
-		<xsl:comment>Posting date</xsl:comment>
+		<!-- Posting date -->
 		<dcterms:created>
 			<xsl:call-template name="processDate">
 				<xsl:with-param name="date" select="text()"/>
 			</xsl:call-template>
 		</dcterms:created>	
+	</xsl:template>
+	
+	<xsl:template match="CLASSCOD">
+		<xsl:choose>
+			<xsl:when test="matches(., '[A-Z]')">
+				<pc:kind rdf:resource="http://purl.org/procurement/public-contracts-kinds#Services"/>
+				<pc:mainObject rdf:resource="{concat($baseURI, 'far-codes/services/concept/', .)}"/>
+			</xsl:when>
+			<xsl:when test="matches(., '\d+')">
+				<pc:kind rdf:resource="http://purl.org/procurement/public-contracts-kinds#Supplies"/>
+				<pc:mainObject rdf:resource="{concat($baseURI, 'far-codes/supplies/concept/', .)}"/>
+			</xsl:when>
+		</xsl:choose>
 	</xsl:template>
 	
 	<xsl:template name="processDescriptionContractInformation">
@@ -186,11 +201,14 @@
 	
 	<xsl:template name="processDate">
 		<xsl:param name="date"/>
+		<xsl:attribute name="rdf:datatype">http://www.w3.org/2001/XMLSchema#date</xsl:attribute>
 		<xsl:analyze-string select="$date" regex="(\d{{2}})(\d{{2}})(\d{{4}})">
 			<xsl:matching-substring>
-				<xsl:attribute name="rdf:datatype">http://www.w3.org/2001/XMLSchema#date</xsl:attribute>
 				<xsl:value-of select="xsd:date(concat(regex-group(3), '-', regex-group(1), '-', regex-group(2)))"/>
 			</xsl:matching-substring>
+			<xsl:non-matching-substring>
+				<xsl:value-of select="$date"/>
+			</xsl:non-matching-substring>
 		</xsl:analyze-string>
 	</xsl:template>
 	
