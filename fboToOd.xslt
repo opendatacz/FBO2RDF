@@ -12,7 +12,7 @@
 	xmlns:s="http://schema.org/"
 	xmlns:skos="http://www.w3.org/2004/02/skos/core#"
 	xmlns:vcard="http://www.w3.org/2006/vcard/ns#"
-	xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 	xmlns:activities="http://purl.org/procurement/public-contracts-activities#"
 	xmlns:authkinds="http://purl.org/procurement/public-contracts-authority-kinds#"
 	xmlns:kinds="http://purl.org/procurement/public-contracts-kinds#"
@@ -140,8 +140,16 @@
 			</xsl:if>
 			
 			<xsl:call-template name="processDescriptionContractInformation"/>
-			
+			<xsl:apply-templates select="DATE"/>
 		</pc:Contract>
+	</xsl:template>
+	
+	<xsl:template match="DATE">
+		<dcterms:created>
+			<xsl:call-template name="processDate">
+				<xsl:with-param name="date" select="text()"/>
+			</xsl:call-template>
+		</dcterms:created>	
 	</xsl:template>
 	
 	<xsl:template name="processDescriptionContractInformation">
@@ -173,6 +181,16 @@
 				</xsl:attribute>
 			</pc:mainObject>
 		</xsl:if>
+	</xsl:template>
+	
+	<xsl:template name="processDate">
+		<xsl:param name="date"/>
+		<xsl:analyze-string select="$date" regex="(\d{{2}})(\d{{2}})(\d{{4}})">
+			<xsl:matching-substring>
+				<xsl:attribute name="rdf:datatype">http://www.w3.org/2001/XMLSchema#date</xsl:attribute>
+				<xsl:value-of select="xsd:date(concat(regex-group(3), '-', regex-group(1), '-', regex-group(2)))"/>
+			</xsl:matching-substring>
+		</xsl:analyze-string>
 	</xsl:template>
 	
 </xsl:stylesheet>
