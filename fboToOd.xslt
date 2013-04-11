@@ -23,8 +23,7 @@
 	xmlns:pcdt="http://purl.org/procurement/public-contracts-datatypes#"
 	xmlns:pccz="http://purl.org/procurement/public-contracts-czech#"
 	xmlns:pceu="http://purl.org/procurement/public-contracts-eu#"
-	exclude-result-prefixes="fn"
-	xpath-default-namespace="http://www.w3.org/2001/XMLSchema">
+	exclude-result-prefixes="fn">
 
 	<xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes"/>
 
@@ -33,22 +32,14 @@
 			<xsl:apply-templates select="NOTICES/PRESOL"/>
 		</rdf:RDF>
 	</xsl:template>
-
+	
 	<xsl:template match="PRESOL">
 		<pc:Contract>
 			<xsl:variable name="authorityLegalName" select="normalize-space(OFFICE/text())"/>
 			<pc:contractingAuthority>
 				<gr:BusinessEntity>
 					<xsl:if test="$authorityLegalName">
-						<gr:legalName>
-							<xsl:value-of select="$authorityLegalName"/>
-						</gr:legalName>
-						<rdfs:label>
-							<xsl:value-of select="$authorityLegalName"/>
-						</rdfs:label>
-						<dcterms:title>
-							<xsl:value-of select="$authorityLegalName"/>
-						</dcterms:title>
+						<gr:legalName><xsl:value-of select="$authorityLegalName"/></gr:legalName>
 					</xsl:if>
 					<xsl:if test="OFFADD/text()">
 						<s:address>
@@ -85,17 +76,17 @@
 					</xsl:if>
 				</gr:BusinessEntity>
 			</pc:contractingAuthority>
+			
 			<xsl:variable name="fileReferenceNumber" select="SOLNBR/text()"/>
 			<xsl:if test="$fileReferenceNumber">
 				<pc:referenceNumber>
 					<adms:Identifier>
 						<skos:notation><xsl:value-of select="$fileReferenceNumber" /></skos:notation>
-						<adms:schemeAgency>
-							<xsl:value-of select="$authorityLegalName"/>
-						</adms:schemeAgency>
+						<adms:schemeAgency><xsl:value-of select="$authorityLegalName"/></adms:schemeAgency>
 					</adms:Identifier>
 				</pc:referenceNumber>
 			</xsl:if>
+			
 			<xsl:if test="CONTACT/text()">
 				<pc:contact>
 					<vcard:VCard>
@@ -107,6 +98,7 @@
 								</xsl:attribute>
 							</vcard:email>
 						</xsl:if>
+						
 						<xsl:if test="EMAIL/ADDRESS/text()">
 							<vcard:email>
 								<xsl:attribute namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#" name="resource">
@@ -115,68 +107,68 @@
 								</xsl:attribute>
 							</vcard:email>
 						</xsl:if>
-
+				
 						<xsl:if test="matches(CONTACT/text(), '.+Phone[^0-9]{0,3}([0-9])[^0-9].+')">
 							<vcard:tel>
-								<rdf:Description>
-									<rdf:type rdf:resource="http://www.w3.org/2006/vcard/ns#Work"/>
+								<vcard:Work>
 									<rdf:value>
 										<xsl:value-of select="replace(CONTACT/text(), '.+Phone[^0-9]{0,3}([0-9])[^0-9].+', '$1')"/>
 									</rdf:value>
-								</rdf:Description>
+								</vcard:Work>
 							</vcard:tel>
 						</xsl:if>
+				
 						<xsl:if test="matches(CONTACT/text(), '.+Fax[^0-9]{0,3}([0-9])[^0-9].+')">
 							<vcard:tel>
-								<rdf:Description>
-									<rdf:type rdf:resource="http://www.w3.org/2006/vcard/ns#Fax"/>
+								<vcard:Fax>
 									<rdf:value>
 										<xsl:value-of select="replace(CONTACT/text(), '.+Fax[^0-9]{0,3}([0-9])[^0-9].+', '$1')"/>
 									</rdf:value>
-								</rdf:Description>
+								</vcard:Fax>
 							</vcard:tel>
 						</xsl:if>
+				
 						<xsl:if test="CONTACT/text()">
-							<vcard:fn>
-								<xsl:value-of select="CONTACT"/>
-							</vcard:fn>
+							<vcard:fn><xsl:value-of select="CONTACT"/></vcard:fn>
 						</xsl:if>
 					</vcard:VCard>
 				</pc:contact>
 			</xsl:if>
+			
 			<xsl:call-template name="processDescriptionContractInformation"/>
-		</pc:Contract>		
-		</xsl:template>
-	
-		<xsl:template name="processDescriptionContractInformation">
-			<xsl:if test="SUBJECT/text()">
-				<dcterms:title>
-					<xsl:value-of select="SUBJECT"/>
-				</dcterms:title>
-				<rdfs:label>
-					<xsl:value-of select="SUBJECT"/>
-				</rdfs:label>
-			</xsl:if>
-			<xsl:if test="DESC/text()">
-				<dcterms:description>
-					<xsl:value-of select="DESC"/>
-				</dcterms:description>
-			</xsl:if>
-			<xsl:if test="POPADDRESS/text()">
-				<pc:location>
-					<s:Place>
-						<xsl:if test="POPADDRESS">
-							<dcterms:description>
-								<xsl:value-of select="POPADDRESS" />
-							</dcterms:description>
-						</xsl:if>
-					</s:Place>
-				</pc:location>
-			</xsl:if>
-			<xsl:if test="NAICS/text()">
-				<pc:mainObject>
-					<xsl:attribute namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#" name="resource"><xsl:text>http://purl.org/weso/pscs/naics/2012/resource/</xsl:text><xsl:value-of select="NAICS"/></xsl:attribute>
-				</pc:mainObject>
-			</xsl:if>
+			
+		</pc:Contract>
 	</xsl:template>
+	
+	<xsl:template name="processDescriptionContractInformation">
+		<xsl:if test="SUBJECT/text()">
+			<dcterms:title><xsl:value-of select="SUBJECT"/></dcterms:title>
+		</xsl:if>
+		
+		<xsl:if test="DESC/text()">
+			<dcterms:description><xsl:value-of select="DESC"/></dcterms:description>
+		</xsl:if>
+		
+		<xsl:if test="POPADDRESS/text()">
+			<pc:location>
+				<s:Place>
+					<xsl:if test="POPADDRESS">
+						<s:description>
+							<xsl:value-of select="POPADDRESS" />
+						</s:description>
+					</xsl:if>
+				</s:Place>
+			</pc:location>
+		</xsl:if>
+		
+		<xsl:if test="NAICS/text()">
+			<pc:mainObject>
+				<xsl:attribute namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#" name="resource">
+					<xsl:text>http://purl.org/weso/pscs/naics/2012/resource/</xsl:text>
+					<xsl:value-of select="NAICS"/>
+				</xsl:attribute>
+			</pc:mainObject>
+		</xsl:if>
+	</xsl:template>
+	
 </xsl:stylesheet>
