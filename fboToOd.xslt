@@ -142,37 +142,50 @@
 			</xsl:if>
 			
 			<xsl:call-template name="processDescriptionContractInformation"/>
-			<xsl:apply-templates select="DATE|CLASSCOD"/>
+			<xsl:apply-templates select="ARCHDATE|CLASSCOD|DATE|LINK|RESPDATE|SUBJECT"/>
 		</pc:Contract>
+	</xsl:template>
+	
+	<xsl:template match="ARCHDATE">
+		<dcterms:available>
+			<xsl:call-template name="processDate">
+				<xsl:with-param name="date" select="text()"/>
+			</xsl:call-template>
+		</dcterms:available>	
+	</xsl:template>
+	
+	<xsl:template match="CLASSCOD">
+		<xsl:call-template name="processClassificationCode">
+			<xsl:with-param name="code" select="text()"/>
+		</xsl:call-template>	
 	</xsl:template>
 	
 	<xsl:template match="DATE">
 		<!-- Posting date -->
-		<dcterms:created>
+		<dcterms:dateSubmitted>
 			<xsl:call-template name="processDate">
 				<xsl:with-param name="date" select="text()"/>
 			</xsl:call-template>
-		</dcterms:created>	
+		</dcterms:dateSubmitted>	
 	</xsl:template>
 	
-	<xsl:template match="CLASSCOD">
-		<xsl:choose>
-			<xsl:when test="matches(., '[A-Z]')">
-				<pc:kind rdf:resource="http://purl.org/procurement/public-contracts-kinds#Services"/>
-				<pc:mainObject rdf:resource="{concat($baseURI, 'far-codes/services/concept/', .)}"/>
-			</xsl:when>
-			<xsl:when test="matches(., '\d+')">
-				<pc:kind rdf:resource="http://purl.org/procurement/public-contracts-kinds#Supplies"/>
-				<pc:mainObject rdf:resource="{concat($baseURI, 'far-codes/supplies/concept/', .)}"/>
-			</xsl:when>
-		</xsl:choose>
+	<xsl:template match="LINK">
+		<dcterms:source><xsl:apply-templates/></dcterms:source>	
+	</xsl:template>
+	
+	<xsl:template match="RESPDATE">
+		<pc:tenderDeadline>
+			<xsl:call-template name="processDate">
+				<xsl:with-param name="date" select="text()"/>
+			</xsl:call-template>
+		</pc:tenderDeadline>	
+	</xsl:template>
+	
+	<xsl:template match="SUBJECT">
+		<dcterms:title xml:lang="en"><xsl:value-of select="substring-after(., '--')"/></dcterms:title>
 	</xsl:template>
 	
 	<xsl:template name="processDescriptionContractInformation">
-		<xsl:if test="SUBJECT/text()">
-			<dcterms:title><xsl:value-of select="SUBJECT"/></dcterms:title>
-		</xsl:if>
-		
 		<xsl:if test="DESC/text()">
 			<dcterms:description><xsl:value-of select="DESC"/></dcterms:description>
 		</xsl:if>
@@ -197,6 +210,20 @@
 				</xsl:attribute>
 			</pc:mainObject>
 		</xsl:if>
+	</xsl:template>
+	
+	<xsl:template name="processClassificationCode">
+		<xsl:param name="code"></xsl:param>
+		<xsl:choose>
+			<xsl:when test="matches($code, '[A-Z]')">
+				<pc:kind rdf:resource="http://purl.org/procurement/public-contracts-kinds#Services"/>
+				<pc:mainObject rdf:resource="{concat($baseURI, 'far-codes/services/concept/', .)}"/>
+			</xsl:when>
+			<xsl:when test="matches($code, '\d+')">
+				<pc:kind rdf:resource="http://purl.org/procurement/public-contracts-kinds#Supplies"/>
+				<pc:mainObject rdf:resource="{concat($baseURI, 'far-codes/supplies/concept/', .)}"/>
+			</xsl:when>
+		</xsl:choose>
 	</xsl:template>
 	
 	<xsl:template name="processDate">
