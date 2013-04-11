@@ -1,0 +1,136 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<http://ld.opendata.cz/resource/far-codes/services/concept-scheme>
+    dcterms:title "FAR codes: services"@en ;
+    a skos:ConceptScheme .
+
+<http://ld.opendata.cz/resource/far-codes/services/concept/A>
+    a skos:Concept ;
+    skos:inScheme <http://ld.opendata.cz/resource/far-codes/services/concept-scheme> ;
+    skos:notation "A" ;
+    skos:prefLabel "Experimental, developmental, test, and basic and applied research work"@en .
+
+<http://ld.opendata.cz/resource/far-codes/services/concept/H>
+    a skos:Concept ;
+    skos:inScheme <http://ld.opendata.cz/resource/far-codes/services/concept-scheme> ;
+    skos:notation "H" ;
+    skos:prefLabel "Expert and consultant services"@en .
+
+<http://ld.opendata.cz/resource/far-codes/services/concept/J>
+    a skos:Concept ;
+    skos:inScheme <http://ld.opendata.cz/resource/far-codes/services/concept-scheme> ;
+    skos:notation "J" ;
+    skos:prefLabel "Maintenance and repair of equipment"@en .
+
+<http://ld.opendata.cz/resource/far-codes/services/concept/K>
+    a skos:Concept ;
+    skos:inScheme <http://ld.opendata.cz/resource/far-codes/services/concept-scheme> ;
+    skos:notation "K" ;
+    skos:prefLabel "Modification, alteration, and rebuilding of equipment"@en .
+
+<http://ld.opendata.cz/resource/far-codes/services/concept/L>
+    a skos:Concept ;
+    skos:example "Services of technical specialists required to assist with the installation, checking, operation, and maintenance of complex equipment" ;
+    skos:inScheme <http://ld.opendata.cz/resource/far-codes/services/concept-scheme> ;
+    skos:notation "L" ;
+    skos:prefLabel "Technical representative services"@en .
+
+<http://ld.opendata.cz/resource/far-codes/services/concept/M>
+    a skos:Concept ;
+    skos:inScheme <http://ld.opendata.cz/resource/far-codes/services/concept-scheme> ;
+    skos:notation "M" ;
+    skos:prefLabel "Operation and maintenance of Government-owned facility"@en .
+
+<http://ld.opendata.cz/resource/far-codes/services/concept/N>
+    a skos:Concept ;
+    skos:inScheme <http://ld.opendata.cz/resource/far-codes/services/concept-scheme> ;
+    skos:notation "N" ;
+    skos:note "Use code K if the contract also involves modification, alteration, or rebuilding of the equipment." ;
+    skos:prefLabel "Installation of equipment"@en .
+
+<http://ld.opendata.cz/resource/far-codes/services/concept/O>
+    a skos:Concept ;
+    skos:inScheme <http://ld.opendata.cz/resource/far-codes/services/concept-scheme> ;
+    skos:notation "O" ;
+    skos:prefLabel "Funeral and Chaplain services"@en .
+
+<http://ld.opendata.cz/resource/far-codes/services/concept/P>
+    a skos:Concept ;
+    skos:inScheme <http://ld.opendata.cz/resource/far-codes/services/concept-scheme> ;
+    skos:notation "P" ;
+    skos:note "Services required to salvage property of any kind." ;
+    skos:prefLabel "Salvage services"@en .
+
+<http://ld.opendata.cz/resource/far-codes/services/concept/Q>
+    a skos:Concept ;
+    skos:inScheme <http://ld.opendata.cz/resource/far-codes/services/concept-scheme> ;
+    skos:notation "Q" ;
+    skos:prefLabel "Medical services"@en .
+
+<http://ld.opendata.cz/resource/far-codes/services/concept/R>
+    a skos:Concept ;
+    skos:inScheme <http://ld.opendata.cz/resource/far-codes/services/concept-scheme> ;
+    skos:notation "R" ;
+    skos:prefLabel "Architect-engineer services"@en .
+
+<http://ld.opendata.cz/resource/far-codes/services/concept/S>
+    a skos:Concept ;
+    skos:example "Utilities (gas, electric, telephone, etc.); Laundry and dry cleaning; Custodial-janitorial; Insect and rodent control; Packing and crating; Storage; Garbage and trash collection; Food; Fueling; Fire protection; Building and grounds maintenance; Care of remains-funerals; and Guards" ;
+    skos:inScheme <http://ld.opendata.cz/resource/far-codes/services/concept-scheme> ;
+    skos:notation "S" ;
+    skos:prefLabel "Housekeeping services"@en .
+
+<http://ld.opendata.cz/resource/far-codes/services/concept/T>
+    a skos:Concept ;
+    skos:example "Film processing; Cataloging; Charting; Reproduction; Technical writing; Art; and Printing" ;
+    skos:inScheme <http://ld.opendata.cz/resource/far-codes/services/concept-scheme> ;
+    skos:notation "T" ;
+    skos:prefLabel "Photographic, mapping, printing, and publication services"@en .
+
+<http://ld.opendata.cz/resource/far-codes/services/concept/U>
+    a skos:Concept ;
+    skos:inScheme <http://ld.opendata.cz/resource/far-codes/services/concept-scheme> ;
+    skos:notation "U" ;
+    skos:prefLabel "Training"@en .
+
+<http://ld.opendata.cz/resource/far-codes/services/concept/V>
+    a skos:Concept ;
+    skos:example "Passenger and cargo transportation; Vessel charter; Vessel operation; Tug service; Stevedoring; Vehicle hire; and Railway equipment charter" ;
+    skos:inScheme <http://ld.opendata.cz/resource/far-codes/services/concept-scheme> ;
+    skos:notation "V" ;
+    skos:prefLabel "Transportation services"@en .
+
+<http://ld.opendata.cz/resource/far-codes/services/concept/W>
+    a skos:Concept ;
+    skos:example "Lease of ADP or EAM equipment; and Lease of earth-moving equipment" ;
+    skos:inScheme <http://ld.opendata.cz/resource/far-codes/services/concept-scheme> ;
+    skos:notation "W" ;
+    skos:prefLabel "Lease or rental, except transportation equipment"@en .
+
+<http://ld.opendata.cz/resource/far-codes/services/concept/X>
+    a skos:Concept ;
+    skos:inScheme <http://ld.opendata.cz/resource/far-codes/services/concept-scheme> ;
+    skos:notation "X" ;
+    skos:prefLabel "Miscellaneous"@en ;
+    skos:scopeNote "Includes all services not covered by any other code." .
+
+<http://ld.opendata.cz/resource/far-codes/services/concept/Y>
+    a skos:Concept ;
+    skos:example "New construction and major additions to existing buildings or facilities" ;
+    skos:inScheme <http://ld.opendata.cz/resource/far-codes/services/concept-scheme> ;
+    skos:notation "Y" ;
+    skos:prefLabel "Construction"@en .
+
+<http://ld.opendata.cz/resource/far-codes/services/concept/Z>
+    a skos:Concept ;
+    skos:example "Painting, building maintenance, alteration and repair, grounds maintenance and repair, roads maintenance and repair" ;
+    skos:inScheme <http://ld.opendata.cz/resource/far-codes/services/concept-scheme> ;
+    skos:notation "Z" ;
+    skos:prefLabel "Maintenance, repair, and alteration of real property"@en .
+
