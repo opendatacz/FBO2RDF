@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="2.0"
-	xmlns="http://www.w3.org/2001/XMLSchema"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:fn="http://www.w3.org/2005/xpath-functions"
 	xmlns:adms="http://www.w3.org/ns/adms#"
@@ -29,8 +28,13 @@
 
 	<xsl:template match="/">
 		<rdf:RDF>
-			<xsl:apply-templates select="NOTICES/PRESOL"/>
+			<xsl:apply-templates select="NOTICES"/>
 		</rdf:RDF>
+	</xsl:template>
+	
+	<xsl:template match="NOTICES">
+		<xsl:apply-templates select="PRESOL"/>
+		<!-- TODO: Implement other types -->
 	</xsl:template>
 	
 	<xsl:template match="PRESOL">
