@@ -6,6 +6,7 @@
 	xmlns:dcterms="http://purl.org/dc/terms/"
 	xmlns:gr="http://purl.org/goodrelations/v1#"
 	xmlns:irw="http://www.ontologydesignpatterns.org/ont/web/irw.owl#"
+	xmlns:org="http://www.w3.org/ns/org#"
 	xmlns:owl="http://www.w3.org/2002/07/owl#"
 	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
@@ -80,6 +81,13 @@
 							</s:PostalAddress>
 						</s:address>
 					</xsl:if>
+					<xsl:if test="../AGENCY">
+						<org:subOrganizationOf>
+							<gr:BusinessEntity>
+								<gr:legalName><xsl:value-of select="../AGENCY"/></gr:legalName>
+							</gr:BusinessEntity>
+						</org:subOrganizationOf>
+					</xsl:if>
 				</gr:BusinessEntity>
 			</pc:contractingAuthority>
 			
@@ -88,7 +96,10 @@
 				<pc:referenceNumber>
 					<adms:Identifier>
 						<skos:notation><xsl:value-of select="$fileReferenceNumber" /></skos:notation>
-						<adms:schemeAgency><xsl:value-of select="$authorityLegalName"/></adms:schemeAgency>
+						<!--
+							Not issued by the contracting authority.
+							<adms:schemeAgency><xsl:value-of select="$authorityLegalName"/></adms:schemeAgency>
+						-->
 					</adms:Identifier>
 				</pc:referenceNumber>
 			</xsl:if>
@@ -193,11 +204,19 @@
 		<xsl:if test="POPADDRESS/text()">
 			<pc:location>
 				<s:Place>
-					<xsl:if test="POPADDRESS">
-						<s:description>
-							<xsl:value-of select="POPADDRESS" />
-						</s:description>
-					</xsl:if>
+					<s:address>
+						<s:PostalAddress>
+							<xsl:if test="../POPCOUNTRY">
+								<s:addressCountry><xsl:value-of select="../POPCOUNTRY"/></s:addressCountry>
+							</xsl:if>
+							<xsl:if test="../POPZIP">
+								<s:postalCode><xsl:value-of select="../POPZIP"/></s:postalCode>
+							</xsl:if>
+							<s:description>
+								<xsl:value-of select="POPADDRESS" />
+							</s:description>
+						</s:PostalAddress>
+					</s:address>
 				</s:Place>
 			</pc:location>
 		</xsl:if>
