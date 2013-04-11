@@ -145,6 +145,7 @@
 	</xsl:template>
 	
 	<xsl:template match="DATE">
+		<xsl:comment>Posting date</xsl:comment>
 		<dcterms:created>
 			<xsl:call-template name="processDate">
 				<xsl:with-param name="date" select="text()"/>
