@@ -109,19 +109,13 @@
 					<vcard:VCard>
 						<xsl:if test="matches(CONTACT/text(), '.+ ([a-z0-9+_-]+@[a-z0-9-]+.[a-z]{2,4}).+')">
 							<vcard:email>
-								<xsl:attribute namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#" name="resource">
-									<xsl:text>mailto:</xsl:text>
-									<xsl:value-of select="replace(CONTACT/text(), '.+ ([a-z0-9+_-]+@[a-z0-9-]+.[a-z]{2,4}).+', '$1')"/>
-								</xsl:attribute>
+                <xsl:value-of select="replace(CONTACT/text(), '.+ ([a-z0-9+_-]+@[a-z0-9-]+.[a-z]{2,4}).+', '$1')"/>
 							</vcard:email>
 						</xsl:if>
 						
 						<xsl:if test="EMAIL/ADDRESS/text()">
 							<vcard:email>
-								<xsl:attribute namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#" name="resource">
-									<xsl:text>mailto:</xsl:text>
-									<xsl:value-of select="EMAIL/ADDRESS/text()"/>
-								</xsl:attribute>
+                <xsl:value-of select="EMAIL/ADDRESS/text()"/>
 							</vcard:email>
 						</xsl:if>
 				
