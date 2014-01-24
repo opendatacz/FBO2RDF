@@ -29,7 +29,7 @@
 
 	<xsl:param name="baseURI">http://ld.opendata.cz/resource/</xsl:param>
 	
-	<xsl:template match="/">
+	<xsl:template match="fbo-gov">
 		<rdf:RDF>
 			<xsl:apply-templates select="NOTICES"/>
 		</rdf:RDF>
