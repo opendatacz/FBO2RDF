@@ -25,7 +25,7 @@
 	xmlns:pceu="http://purl.org/procurement/public-contracts-eu#"
 	exclude-result-prefixes="fn">
 
-	<xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes"/>
+	<xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes" cdata-section-elements="s:streetAddress dcterms:description vcard:email vcard:fn s:description dcterms:title" />
 
 	<xsl:param name="baseURI">http://ld.opendata.cz/resource/</xsl:param>
 	
