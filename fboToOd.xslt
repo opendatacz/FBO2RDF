@@ -36,11 +36,11 @@
 	</xsl:template>
 	
 	<xsl:template match="NOTICES">
-		<xsl:apply-templates select="PRESOL"/>
+		<xsl:apply-templates select="PRESOL|COMBINE"/>
 		<!-- TODO: Implement other types -->
 	</xsl:template>
 	
-	<xsl:template match="PRESOL">
+	<xsl:template match="PRESOL|COMBINE">
 		<pc:Contract>
 			<xsl:variable name="authorityLegalName" select="normalize-space(OFFICE/text())"/>
 			<pc:contractingAuthority>
@@ -150,7 +150,7 @@
 			<xsl:apply-templates select="ARCHDATE|CLASSCOD|DATE|LINK|RESPDATE|SUBJECT"/>
 		</pc:Contract>
 	</xsl:template>
-	
+
 	<xsl:template match="ARCHDATE">
 		<dcterms:available>
 			<xsl:call-template name="processDate">
