@@ -107,15 +107,15 @@
 			<xsl:if test="CONTACT/text()">
 				<pc:contact>
 					<vcard:VCard>
-						<xsl:if test="matches(CONTACT/text(), '.+ ([a-z0-9+_-]+@[a-z0-9-]+.[a-z]{2,4}).+')">
+						<xsl:if test="matches(CONTACT/text(), '.+[\s:](\S+@\S+\.[a-z]{2,6})([\s&quot;].*|$)')">
 							<vcard:email>
-                <xsl:value-of select="replace(CONTACT/text(), '.+ ([a-z0-9+_-]+@[a-z0-9-]+.[a-z]{2,4}).+', '$1')"/>
+                                <xsl:value-of select="replace(CONTACT/text(), '.+[\s:](\S+@\S+\.[a-z]{2,6})([\s&quot;].*|$)', '$1')"/>
 							</vcard:email>
 						</xsl:if>
 						
 						<xsl:if test="EMAIL/ADDRESS/text()">
 							<vcard:email>
-                <xsl:value-of select="EMAIL/ADDRESS/text()"/>
+                                <xsl:value-of select="EMAIL/ADDRESS/text()"/>
 							</vcard:email>
 						</xsl:if>
 				
