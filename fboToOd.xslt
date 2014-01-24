@@ -81,10 +81,10 @@
 							</s:PostalAddress>
 						</s:address>
 					</xsl:if>
-					<xsl:if test="../AGENCY">
+					<xsl:if test="AGENCY">
 						<org:subOrganizationOf>
 							<gr:BusinessEntity>
-								<gr:legalName><xsl:value-of select="../AGENCY"/></gr:legalName>
+								<gr:legalName><xsl:value-of select="AGENCY"/></gr:legalName>
 							</gr:BusinessEntity>
 						</org:subOrganizationOf>
 					</xsl:if>
@@ -200,11 +200,11 @@
 				<s:Place>
 					<s:address>
 						<s:PostalAddress>
-							<xsl:if test="../POPCOUNTRY">
-								<s:addressCountry><xsl:value-of select="../POPCOUNTRY"/></s:addressCountry>
+							<xsl:if test="POPCOUNTRY">
+								<s:addressCountry><xsl:value-of select="POPCOUNTRY"/></s:addressCountry>
 							</xsl:if>
-							<xsl:if test="../POPZIP">
-								<s:postalCode><xsl:value-of select="../POPZIP"/></s:postalCode>
+							<xsl:if test="POPZIP">
+								<s:postalCode><xsl:value-of select="POPZIP"/></s:postalCode>
 							</xsl:if>
 							<s:description>
 								<xsl:value-of select="POPADDRESS" />
