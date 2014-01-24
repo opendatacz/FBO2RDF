@@ -118,22 +118,22 @@
                                 <xsl:value-of select="EMAIL/ADDRESS/text()"/>
 							</vcard:email>
 						</xsl:if>
-				
-						<xsl:if test="matches(CONTACT/text(), '.+Phone[^0-9]{0,3}([0-9])[^0-9].+')">
+                        <xsl:variable name="phoneRegex" select="'[^0-9(]{0,3}((\(\d{3}\))?[0-9-]+)[^0-9].+'" />
+						<xsl:if test="matches(CONTACT/text(), fn:concat('.+Phone', $phoneRegex))">
 							<vcard:tel>
 								<vcard:Work>
 									<rdf:value>
-										<xsl:value-of select="replace(CONTACT/text(), '.+Phone[^0-9]{0,3}([0-9])[^0-9].+', '$1')"/>
+										<xsl:value-of select="replace(CONTACT/text(), fn:concat('.+Phone', $phoneRegex), '$1')"/>
 									</rdf:value>
 								</vcard:Work>
 							</vcard:tel>
 						</xsl:if>
 				
-						<xsl:if test="matches(CONTACT/text(), '.+Fax[^0-9]{0,3}([0-9])[^0-9].+')">
+						<xsl:if test="matches(CONTACT/text(), fn:concat('.+Fax', $phoneRegex))">
 							<vcard:tel>
 								<vcard:Fax>
 									<rdf:value>
-										<xsl:value-of select="replace(CONTACT/text(), '.+Fax[^0-9]{0,3}([0-9])[^0-9].+', '$1')"/>
+										<xsl:value-of select="replace(CONTACT/text(), fn:concat('.+Fax', $phoneRegex), '$1')"/>
 									</rdf:value>
 								</vcard:Fax>
 							</vcard:tel>
