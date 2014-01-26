@@ -37,14 +37,14 @@
 	</xsl:template>
 
 	<xsl:template match="NOTICES">
-		<xsl:apply-templates select="PRESOL|COMBINE|SRCSGT|AWARD"/>
+		<xsl:apply-templates select="PRESOL|COMBINE|SRCSGT|AWARD|JA|FAIROPP"/>
 		<!-- TODO: Implement other types -->
 	</xsl:template>
 
 	<xsl:variable name="localityRegexp" select="'.*([;,]\s*([^\d;,]+)[;,]\s*|\s+([^\d\s,;]+)\s+)[A-Z]{2}\s+[\d-]+.+'"/>
 	<xsl:variable name="countryRegexp" select="'.* ([A-Z]{2})\s+[0-9-]+'"/>
 
-	<xsl:template match="PRESOL|COMBINE|SRCSGT|AWARD">
+	<xsl:template match="PRESOL|COMBINE|SRCSGT|AWARD|JA|FAIROPP">
 		<pc:Contract>
 			<xsl:variable name="authorityLegalName" select="normalize-space(OFFICE/text())"/>
 			<pc:contractingAuthority>
@@ -181,42 +181,46 @@
 							</skos:notation>
 						</adms:Identifier>
 					</adms:identifier>
-					<pc:bidder>
-						<gr:BusinessEntity>
-							<gr:legalName>
-								<xsl:value-of select="replace(AWARDEE/text(), '(.+?)[;,\s]+\d+.+', '$1')"/>
-							</gr:legalName>
-							<s:address>
-								<s:PostalAddress>
-									<s:streetAddress>
-										<xsl:value-of select="AWARDEE"/>
-									</s:streetAddress>
-									<s:addressLocality>
-										<xsl:value-of
-												select="replace(AWARDEE/text(), $localityRegexp, '$2$3')"/>
-									</s:addressLocality>
-									<s:postalCode>
-										<xsl:value-of select="replace(AWARDEE/text(), '.+[;,\s]+[A-Z]{2}[;,\s]+(\d+)([;,\s]+(USA?)?|)', '$1')"/>
-									</s:postalCode>
-									<s:addressCountry>
-										<xsl:value-of
-												select="replace(AWARDEE/text(), $countryRegexp, '$1')"/>
-									</s:addressCountry>
-								</s:PostalAddress>
-							</s:address>
-						</gr:BusinessEntity>
-					</pc:bidder>
-					<pc:offeredPrice>
-						<gr:UnitPriceSpecification>
-							<gr:hasCurrency>
-								<xsl:text>USD</xsl:text>
-							</gr:hasCurrency>
-							<gr:hasCurrencyValue>
-								<xsl:attribute name="rdf:datatype">http://www.w3.org/2001/XMLSchema#float</xsl:attribute>
-								<xsl:value-of select="replace(AWDAMT/text(), '[^\d.]', '')"/>
-							</gr:hasCurrencyValue>
-						</gr:UnitPriceSpecification>
-					</pc:offeredPrice>
+					<xsl:if test="AWARDEE/text()">
+						<pc:bidder>
+							<gr:BusinessEntity>
+								<gr:legalName>
+									<xsl:value-of select="replace(AWARDEE/text(), '(.+?)[;,\s]+\d+.+', '$1')"/>
+								</gr:legalName>
+								<s:address>
+									<s:PostalAddress>
+										<s:streetAddress>
+											<xsl:value-of select="AWARDEE"/>
+										</s:streetAddress>
+										<s:addressLocality>
+											<xsl:value-of
+													select="replace(AWARDEE/text(), $localityRegexp, '$2$3')"/>
+										</s:addressLocality>
+										<s:postalCode>
+											<xsl:value-of select="replace(AWARDEE/text(), '.+[;,\s]+[A-Z]{2}[;,\s]+(\d+)([;,\s]+(USA?)?|)', '$1')"/>
+										</s:postalCode>
+										<s:addressCountry>
+											<xsl:value-of
+													select="replace(AWARDEE/text(), $countryRegexp, '$1')"/>
+										</s:addressCountry>
+									</s:PostalAddress>
+								</s:address>
+							</gr:BusinessEntity>
+						</pc:bidder>
+					</xsl:if>
+					<xsl:if test="AWDAMT/text()">
+						<pc:offeredPrice>
+							<gr:UnitPriceSpecification>
+								<gr:hasCurrency>
+									<xsl:text>USD</xsl:text>
+								</gr:hasCurrency>
+								<gr:hasCurrencyValue>
+									<xsl:attribute name="rdf:datatype">http://www.w3.org/2001/XMLSchema#float</xsl:attribute>
+									<xsl:value-of select="replace(AWDAMT/text(), '[^\d.]', '')"/>
+								</gr:hasCurrencyValue>
+							</gr:UnitPriceSpecification>
+						</pc:offeredPrice>
+					</xsl:if>
 				</pc:Tender>
 			</pc:awardedTender>
 		</xsl:if>
