@@ -37,11 +37,14 @@
 	</xsl:template>
 
 	<xsl:template match="NOTICES">
-		<xsl:apply-templates select="PRESOL|COMBINE|SRCSGT"/>
+		<xsl:apply-templates select="PRESOL|COMBINE|SRCSGT|AWARD"/>
 		<!-- TODO: Implement other types -->
 	</xsl:template>
 
-	<xsl:template match="PRESOL|COMBINE|SRCSGT">
+	<xsl:variable name="localityRegexp" select="'.*([;,]\s*([^\d;,]+)[;,]\s*|\s+([^\d\s,;]+)\s+)[A-Z]{2}\s+[\d-]+.+'"/>
+	<xsl:variable name="countryRegexp" select="'.* ([A-Z]{2})\s+[0-9-]+'"/>
+
+	<xsl:template match="PRESOL|COMBINE|SRCSGT|AWARD">
 		<pc:Contract>
 			<xsl:variable name="authorityLegalName" select="normalize-space(OFFICE/text())"/>
 			<pc:contractingAuthority>
@@ -62,7 +65,7 @@
 								<xsl:if test="OFFADD/text()">
 									<s:addressLocality>
 										<xsl:value-of
-												select="replace(OFFADD/text(), '.*([;,]\s*([^\d;,]+)[;,]\s*|\s+([^\d\s,;]+)\s+)[A-Z]{2}\s+[\d-]+', '$2$3')"/>
+												select="replace(OFFADD/text(), $localityRegexp, '$2$3')"/>
 									</s:addressLocality>
 								</xsl:if>
 
@@ -75,7 +78,7 @@
 									<xsl:when test="OFFADD/text()">
 										<s:addressCountry>
 											<xsl:value-of
-													select="replace(OFFADD/text(), '.* ([A-Z]{2})\s+[0-9-]+', '$1')"/>
+													select="replace(OFFADD/text(), $countryRegexp, '$1')"/>
 										</s:addressCountry>
 									</xsl:when>
 									<xsl:otherwise>
@@ -163,7 +166,68 @@
 
 			<xsl:call-template name="processDescriptionContractInformation"/>
 			<xsl:apply-templates select="ARCHDATE|CLASSCOD|DATE|LINK|RESPDATE|SUBJECT"/>
+			<xsl:call-template name="processAwardInformation"/>
 		</pc:Contract>
+	</xsl:template>
+
+	<xsl:template name="processAwardInformation">
+		<xsl:if test="AWDNBR/text()">
+			<pc:awardedTender>
+				<pc:Tender>
+					<adms:identifier>
+						<adms:Identifier>
+							<skos:notation>
+								<xsl:value-of select="AWDNBR/text()"/>
+							</skos:notation>
+						</adms:Identifier>
+					</adms:identifier>
+					<pc:bidder>
+						<gr:BusinessEntity>
+							<gr:legalName>
+								<xsl:value-of select="replace(AWARDEE/text(), '(.+?)[;,\s]+\d+.+', '$1')"/>
+							</gr:legalName>
+							<s:address>
+								<s:PostalAddress>
+									<s:streetAddress>
+										<xsl:value-of select="AWARDEE"/>
+									</s:streetAddress>
+									<s:addressLocality>
+										<xsl:value-of
+												select="replace(AWARDEE/text(), $localityRegexp, '$2$3')"/>
+									</s:addressLocality>
+									<s:postalCode>
+										<xsl:value-of select="replace(AWARDEE/text(), '.+[;,\s]+[A-Z]{2}[;,\s]+(\d+)([;,\s]+(USA?)?|)', '$1')"/>
+									</s:postalCode>
+									<s:addressCountry>
+										<xsl:value-of
+												select="replace(AWARDEE/text(), $countryRegexp, '$1')"/>
+									</s:addressCountry>
+								</s:PostalAddress>
+							</s:address>
+						</gr:BusinessEntity>
+					</pc:bidder>
+					<pc:offeredPrice>
+						<gr:UnitPriceSpecification>
+							<gr:hasCurrency>
+								<xsl:text>USD</xsl:text>
+							</gr:hasCurrency>
+							<gr:hasCurrencyValue>
+								<xsl:attribute name="rdf:datatype">http://www.w3.org/2001/XMLSchema#float</xsl:attribute>
+								<xsl:value-of select="replace(AWDAMT/text(), '[^\d.]', '')"/>
+							</gr:hasCurrencyValue>
+						</gr:UnitPriceSpecification>
+					</pc:offeredPrice>
+				</pc:Tender>
+			</pc:awardedTender>
+		</xsl:if>
+
+		<xsl:if test="AWDDATE/text()">
+			<pc:awardDate>
+				<xsl:call-template name="processDate">
+					<xsl:with-param name="date" select="AWDDATE/text()" />
+				</xsl:call-template>
+			</pc:awardDate>
+		</xsl:if>
 	</xsl:template>
 
 	<xsl:template match="ARCHDATE">
