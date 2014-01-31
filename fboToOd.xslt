@@ -61,25 +61,32 @@
 		<pc:Contract>
 			<xsl:variable name="fileReferenceNumber" select="SOLNBR/text()"/>
 
-			<xsl:if test="$fileReferenceNumber">
-				<xsl:attribute name="rdf:about">
-					<xsl:value-of select="f:classURI('Contract', $fileReferenceNumber)"/>
-				</xsl:attribute>
-				<adms:identifier>
-					<adms:Identifier>
-						<xsl:attribute name="rdf:about">
-							<xsl:value-of select="f:classURI('Identifier', f:slugify($fileReferenceNumber))"/>
-						</xsl:attribute>
-						<skos:notation>
-							<xsl:value-of select="$fileReferenceNumber"/>
-						</skos:notation>
-						<!--
-							Not issued by the contracting authority.
-							<adms:schemeAgency><xsl:value-of select="$authorityLegalName"/></adms:schemeAgency>
-						-->
-					</adms:Identifier>
-				</adms:identifier>
-			</xsl:if>
+			<xsl:choose>
+				<xsl:when test="$fileReferenceNumber">
+					<xsl:attribute name="rdf:about">
+						<xsl:value-of select="f:classURI('Contract', $fileReferenceNumber)"/>
+					</xsl:attribute>
+					<adms:identifier>
+						<adms:Identifier>
+							<xsl:attribute name="rdf:about">
+								<xsl:value-of select="f:classURI('Identifier', f:slugify($fileReferenceNumber))"/>
+							</xsl:attribute>
+							<skos:notation>
+								<xsl:value-of select="$fileReferenceNumber"/>
+							</skos:notation>
+							<!--
+								Not issued by the contracting authority.
+								<adms:schemeAgency><xsl:value-of select="$authorityLegalName"/></adms:schemeAgency>
+							-->
+						</adms:Identifier>
+					</adms:identifier>
+				</xsl:when>
+				<xsl:otherwise>
+					<xsl:attribute name="rdf:about">
+						<xsl:value-of select="f:classURI('Contract', generate-id())"/>
+					</xsl:attribute>
+				</xsl:otherwise>
+			</xsl:choose>
 
 			<xsl:variable name="authorityLegalName" select="normalize-space(OFFICE/text())"/>
 			<pc:contractingAuthority>
