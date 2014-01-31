@@ -65,7 +65,7 @@
 				<xsl:attribute name="rdf:about">
 					<xsl:value-of select="f:classURI('Contract', $fileReferenceNumber)"/>
 				</xsl:attribute>
-				<pc:referenceNumber>
+				<adms:identifier>
 					<adms:Identifier>
 						<xsl:attribute name="rdf:about">
 							<xsl:value-of select="f:classURI('Identifier', f:slugify($fileReferenceNumber))"/>
@@ -78,7 +78,7 @@
 							<adms:schemeAgency><xsl:value-of select="$authorityLegalName"/></adms:schemeAgency>
 						-->
 					</adms:Identifier>
-				</pc:referenceNumber>
+				</adms:identifier>
 			</xsl:if>
 
 			<xsl:variable name="authorityLegalName" select="normalize-space(OFFICE/text())"/>
