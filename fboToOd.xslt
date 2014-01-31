@@ -330,7 +330,7 @@
 
 	<xsl:template match="SUBJECT">
 		<dcterms:title xml:lang="en">
-			<xsl:value-of select="substring-after(., '--')"/>
+			<xsl:value-of select="normalize-space(replace(text(), '.+?--(.+)', '$1'))"/>
 		</dcterms:title>
 	</xsl:template>
 
