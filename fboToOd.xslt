@@ -16,7 +16,7 @@
                 exclude-result-prefixes="fn f">
 
 	<xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes"
-	            cdata-section-elements="s:streetAddress dcterms:description vcard:email vcard:fn s:description dcterms:title"/>
+	            cdata-section-elements="dcterms:description vcard:email vcard:fn s:description dcterms:title"/>
 
 	<xsl:param name="baseURI">http://linked.opendata.cz/resource/</xsl:param>
 	<xsl:variable name="domainURI" select="concat($baseURI, 'domain/fbo.gov/')"/>
@@ -106,34 +106,20 @@
 								<xsl:attribute name="rdf:about">
 									<xsl:value-of select="f:classURI('Postal Address', fn:generate-id(OFFADD))"/>
 								</xsl:attribute>
-								<xsl:if test="$officeAddress">
-									<s:streetAddress>
-										<xsl:value-of select="$officeAddress"/>
-									</s:streetAddress>
-									<s:addressLocality>
-										<xsl:value-of
-												select="replace($officeAddress, $localityRegexp, '$2$3')"/>
-									</s:addressLocality>
-								</xsl:if>
+
+								<xsl:call-template name="parseAddress">
+									<xsl:with-param name="address" select="$officeAddress"/>
+								</xsl:call-template>
+
+								<s:addressCountry>
+									<xsl:text>US</xsl:text>
+								</s:addressCountry>
 
 								<xsl:if test="ZIP/text()">
 									<s:postalCode>
 										<xsl:value-of select="ZIP"/>
 									</s:postalCode>
 								</xsl:if>
-								<xsl:choose>
-									<xsl:when test="$officeAddress">
-										<s:addressCountry>
-											<xsl:value-of
-													select="replace($officeAddress, $countryRegexp, '$1')"/>
-										</s:addressCountry>
-									</xsl:when>
-									<xsl:otherwise>
-										<s:addressCountry>
-											<xsl:text>USA</xsl:text>
-										</s:addressCountry>
-									</xsl:otherwise>
-								</xsl:choose>
 							</s:PostalAddress>
 						</s:address>
 					</xsl:if>
@@ -253,20 +239,18 @@
 										<xsl:attribute name="rdf:about">
 											<xsl:value-of select="f:classURI('Postal Address', fn:generate-id(AWARDEE))"/>
 										</xsl:attribute>
-										<s:streetAddress>
-											<xsl:value-of select="$awardee"/>
-										</s:streetAddress>
-										<s:addressLocality>
-											<xsl:value-of
-													select="replace($awardee, $localityRegexp, '$2$3')"/>
-										</s:addressLocality>
-										<s:postalCode>
-											<xsl:value-of select="replace($awardee, '.+[;,\s]+[A-Z]{2}[;,\s]+(\d+)([;,\s]+(USA?)?|)', '$1')"/>
-										</s:postalCode>
-										<s:addressCountry>
-											<xsl:value-of
-													select="replace($awardee, $countryRegexp, '$1')"/>
-										</s:addressCountry>
+
+										<xsl:call-template name="parseAddress">
+											<xsl:with-param name="address" select="$awardee"/>
+										</xsl:call-template>
+
+										<xsl:analyze-string select="$awardee" regex="'.+[;,\s]+[A-Z]{2}[;,\s]+([\d-]+)([;,\s]+(USA?)?|)$'">
+											<xsl:matching-substring>
+												<s:postalCode>
+													<xsl:value-of select="regex-group(1)"/>
+												</s:postalCode>
+											</xsl:matching-substring>
+										</xsl:analyze-string>
 									</s:PostalAddress>
 								</s:address>
 							</gr:BusinessEntity>
@@ -345,6 +329,29 @@
 		</dcterms:title>
 	</xsl:template>
 
+	<xsl:template name="parseAddress">
+		<xsl:param name="address"/>
+		<xsl:analyze-string select="$address" regex="(.+)([;,]\s*(.+?)|\W(\w+\s+City)|( \d+) (.+?))([;,]\s*|\s+)(\w\w)([;,]\s*|\s+)[\d-]+.+">
+			<xsl:matching-substring>
+				<s:streetAddress>
+					<xsl:value-of select="replace(concat(regex-group(1), regex-group(5)), '^\s*(.+?)[;,]\s*$', '$1')"/>
+				</s:streetAddress>
+				<s:addressLocality>
+					<xsl:value-of
+							select="normalize-space(concat(regex-group(3), regex-group(4), regex-group(6)))"/>
+				</s:addressLocality>
+				<s:addressRegion>
+					<xsl:value-of select="regex-group(8)"/>
+				</s:addressRegion>
+			</xsl:matching-substring>
+			<xsl:non-matching-substring>
+				<s:description>
+					<xsl:value-of select="$address"/>
+				</s:description>
+			</xsl:non-matching-substring>
+		</xsl:analyze-string>
+	</xsl:template>
+
 	<xsl:template name="processDescriptionContractInformation">
 		<xsl:if test="DESC/text()">
 			<dcterms:description>
@@ -395,7 +402,7 @@
 	</xsl:template>
 
 	<xsl:template name="processClassificationCode">
-		<xsl:param name="code"></xsl:param>
+		<xsl:param name="code"/>
 		<xsl:choose>
 			<xsl:when test="matches($code, '[A-Z]')">
 				<pc:kind rdf:resource="http://purl.org/procurement/public-contracts-kinds#Services"/>
