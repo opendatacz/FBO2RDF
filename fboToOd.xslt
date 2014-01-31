@@ -59,7 +59,7 @@
 
 	<xsl:template match="PRESOL|COMBINE|SRCSGT|AWARD|JA|FAIROPP">
 		<pc:Contract>
-			<xsl:variable name="fileReferenceNumber" select="SOLNBR/text()"/>
+			<xsl:variable name="fileReferenceNumber" select="normalize-space(SOLNBR/text())"/>
 
 			<xsl:choose>
 				<xsl:when test="$fileReferenceNumber">
@@ -99,21 +99,20 @@
 							<xsl:value-of select="$authorityLegalName"/>
 						</gr:legalName>
 					</xsl:if>
-					<xsl:if test="OFFADD/text()">
+					<xsl:variable name="officeAddress" select="normalize-space(OFFADD/text())"/>
+					<xsl:if test="$officeAddress">
 						<s:address>
 							<s:PostalAddress>
 								<xsl:attribute name="rdf:about">
 									<xsl:value-of select="f:classURI('Postal Address', fn:generate-id(OFFADD))"/>
 								</xsl:attribute>
-								<xsl:if test="OFFADD/text()">
+								<xsl:if test="$officeAddress">
 									<s:streetAddress>
-										<xsl:value-of select="OFFADD"/>
+										<xsl:value-of select="$officeAddress"/>
 									</s:streetAddress>
-								</xsl:if>
-								<xsl:if test="OFFADD/text()">
 									<s:addressLocality>
 										<xsl:value-of
-												select="replace(OFFADD/text(), $localityRegexp, '$2$3')"/>
+												select="replace($officeAddress, $localityRegexp, '$2$3')"/>
 									</s:addressLocality>
 								</xsl:if>
 
@@ -123,10 +122,10 @@
 									</s:postalCode>
 								</xsl:if>
 								<xsl:choose>
-									<xsl:when test="OFFADD/text()">
+									<xsl:when test="$officeAddress">
 										<s:addressCountry>
 											<xsl:value-of
-													select="replace(OFFADD/text(), $countryRegexp, '$1')"/>
+													select="replace($officeAddress, $countryRegexp, '$1')"/>
 										</s:addressCountry>
 									</xsl:when>
 									<xsl:otherwise>
@@ -138,14 +137,15 @@
 							</s:PostalAddress>
 						</s:address>
 					</xsl:if>
-					<xsl:if test="AGENCY">
+					<xsl:variable name="agency" select="normalize-space(AGENCY)"/>
+					<xsl:if test="$agency">
 						<org:subOrganizationOf>
 							<gr:BusinessEntity>
 								<xsl:attribute name="rdf:about">
-									<xsl:value-of select="f:classURI('Business Entity', f:slugify(AGENCY))"/>
+									<xsl:value-of select="f:classURI('Business Entity', f:slugify($agency))"/>
 								</xsl:attribute>
 								<gr:legalName>
-									<xsl:value-of select="AGENCY"/>
+									<xsl:value-of select="$agency"/>
 								</gr:legalName>
 							</gr:BusinessEntity>
 						</org:subOrganizationOf>
@@ -153,29 +153,31 @@
 				</gr:BusinessEntity>
 			</pc:contractingAuthority>
 
-			<xsl:if test="CONTACT/text()">
+			<xsl:variable name="contact" select="CONTACT/text()"/>
+			<xsl:if test="$contact">
 				<pc:contact>
 					<vcard:VCard>
 						<xsl:attribute name="rdf:about">
-							<xsl:value-of select="f:classURI('VCard', fn:generate-id(CONTACT))"/>
+							<xsl:value-of select="f:classURI('VCard', fn:generate-id($contact))"/>
 						</xsl:attribute>
-						<xsl:if test="matches(CONTACT/text(), '.+[\s:](\S+@\S+\.[a-z]{2,6})([\s&quot;].*|$)')">
+						<xsl:if test="matches($contact, '.+[\s:](\S+@\S+\.[a-z]{2,6})([\s&quot;].*|$)')">
 							<vcard:email>
 								<xsl:value-of
-										select="replace(CONTACT/text(), '.+[\s:](\S+@\S+\.[a-z]{2,6})([\s&quot;].*|$)', '$1')"/>
+										select="replace($contact, '.+[\s:](\S+@\S+\.[a-z]{2,6})([\s&quot;].*|$)', '$1')"/>
 							</vcard:email>
 						</xsl:if>
 
-						<xsl:if test="EMAIL/ADDRESS/text()">
+						<xsl:variable name="email" select="EMAIL/ADDRESS/text()"/>
+						<xsl:if test="$email">
 							<vcard:email>
-								<xsl:value-of select="EMAIL/ADDRESS/text()"/>
+								<xsl:value-of select="$email"/>
 							</vcard:email>
 						</xsl:if>
 						<xsl:variable name="phoneRegex" select="'[^0-9(]{0,3}((\(\d{3}\))?[0-9-]+)[^0-9].+'"/>
-						<xsl:if test="matches(CONTACT/text(), fn:concat('.+Phone', $phoneRegex))">
+						<xsl:if test="matches($contact, fn:concat('.+Phone', $phoneRegex))">
 							<vcard:tel>
 								<vcard:Work>
-									<xsl:variable name="phone" select="replace(CONTACT/text(), fn:concat('.+Phone', $phoneRegex), '$1')"/>
+									<xsl:variable name="phone" select="replace($contact, fn:concat('.+Phone', $phoneRegex), '$1')"/>
 									<xsl:attribute name="rdf:about">
 										<xsl:value-of select="f:classURI('Work', replace($phone, '[^\d]', ''))"/>
 									</xsl:attribute>
@@ -187,10 +189,10 @@
 							</vcard:tel>
 						</xsl:if>
 
-						<xsl:if test="matches(CONTACT/text(), fn:concat('.+Fax', $phoneRegex))">
+						<xsl:if test="matches($contact, fn:concat('.+Fax', $phoneRegex))">
 							<vcard:tel>
 								<vcard:Fax>
-									<xsl:variable name="fax" select="replace(CONTACT/text(), fn:concat('.+Fax', $phoneRegex), '$1')"/>
+									<xsl:variable name="fax" select="replace($contact, fn:concat('.+Fax', $phoneRegex), '$1')"/>
 									<xsl:attribute name="rdf:about">
 										<xsl:value-of select="f:classURI('Fax', replace($fax, '[^\d]', ''))"/>
 									</xsl:attribute>
@@ -202,9 +204,9 @@
 							</vcard:tel>
 						</xsl:if>
 
-						<xsl:if test="CONTACT/text()">
+						<xsl:if test="$contact">
 							<vcard:fn>
-								<xsl:value-of select="CONTACT"/>
+								<xsl:value-of select="$contact"/>
 							</vcard:fn>
 						</xsl:if>
 					</vcard:VCard>
@@ -218,7 +220,7 @@
 	</xsl:template>
 
 	<xsl:template name="processAwardInformation">
-		<xsl:variable name="tenderCode" select="AWDNBR/text()"/>
+		<xsl:variable name="tenderCode" select="normalize-space(AWDNBR/text())"/>
 		<xsl:if test="$tenderCode">
 			<pc:awardedTender>
 				<pc:Tender>
@@ -235,10 +237,11 @@
 							</skos:notation>
 						</adms:Identifier>
 					</adms:identifier>
-					<xsl:if test="AWARDEE/text()">
+					<xsl:variable name="awardee" select="normalize-space(AWARDEE/text())"/>
+					<xsl:if test="$awardee">
 						<pc:bidder>
 							<gr:BusinessEntity>
-								<xsl:variable name="awardeeLegalName" select="replace(AWARDEE/text(), '(.+?)[;,\s]+\d+.+', '$1')"/>
+								<xsl:variable name="awardeeLegalName" select="replace($awardee, '(.+?)[;,\s]+\d+.+', '$1')"/>
 								<xsl:attribute name="rdf:about">
 									<xsl:value-of select="f:classURI('Business Entity', f:slugify($awardeeLegalName))"/>
 								</xsl:attribute>
@@ -251,25 +254,26 @@
 											<xsl:value-of select="f:classURI('Postal Address', fn:generate-id(AWARDEE))"/>
 										</xsl:attribute>
 										<s:streetAddress>
-											<xsl:value-of select="AWARDEE"/>
+											<xsl:value-of select="$awardee"/>
 										</s:streetAddress>
 										<s:addressLocality>
 											<xsl:value-of
-													select="replace(AWARDEE/text(), $localityRegexp, '$2$3')"/>
+													select="replace($awardee, $localityRegexp, '$2$3')"/>
 										</s:addressLocality>
 										<s:postalCode>
-											<xsl:value-of select="replace(AWARDEE/text(), '.+[;,\s]+[A-Z]{2}[;,\s]+(\d+)([;,\s]+(USA?)?|)', '$1')"/>
+											<xsl:value-of select="replace($awardee, '.+[;,\s]+[A-Z]{2}[;,\s]+(\d+)([;,\s]+(USA?)?|)', '$1')"/>
 										</s:postalCode>
 										<s:addressCountry>
 											<xsl:value-of
-													select="replace(AWARDEE/text(), $countryRegexp, '$1')"/>
+													select="replace($awardee, $countryRegexp, '$1')"/>
 										</s:addressCountry>
 									</s:PostalAddress>
 								</s:address>
 							</gr:BusinessEntity>
 						</pc:bidder>
 					</xsl:if>
-					<xsl:if test="AWDAMT/text()">
+					<xsl:variable name="awardAmount" select="normalize-space(AWDAMT/text())"/>
+					<xsl:if test="$awardAmount">
 						<pc:offeredPrice>
 							<gr:UnitPriceSpecification>
 								<xsl:attribute name="rdf:about">
@@ -280,7 +284,7 @@
 								</gr:hasCurrency>
 								<gr:hasCurrencyValue>
 									<xsl:attribute name="rdf:datatype">http://www.w3.org/2001/XMLSchema#decimal</xsl:attribute>
-									<xsl:value-of select="replace(AWDAMT/text(), '[^\d.]', '')"/>
+									<xsl:value-of select="replace($awardAmount, '[^\d.]', '')"/>
 								</gr:hasCurrencyValue>
 							</gr:UnitPriceSpecification>
 						</pc:offeredPrice>
@@ -344,11 +348,12 @@
 	<xsl:template name="processDescriptionContractInformation">
 		<xsl:if test="DESC/text()">
 			<dcterms:description>
-				<xsl:value-of select="DESC"/>
+				<xsl:value-of select="normalize-space(DESC)"/>
 			</dcterms:description>
 		</xsl:if>
 
-		<xsl:if test="POPADDRESS/text()">
+		<xsl:variable name="address" select="POPADDRESS/text()"/>
+		<xsl:if test="$address">
 			<pc:location>
 				<s:Place>
 					<xsl:attribute name="rdf:about">
@@ -370,7 +375,7 @@
 								</s:postalCode>
 							</xsl:if>
 							<s:description>
-								<xsl:value-of select="POPADDRESS"/>
+								<xsl:value-of select="$address"/>
 							</s:description>
 						</s:PostalAddress>
 					</s:address>
@@ -378,11 +383,12 @@
 			</pc:location>
 		</xsl:if>
 
-		<xsl:if test="NAICS/text()">
+		<xsl:variable name="naicsCode" select="NAICS/text()"/>
+		<xsl:if test="$naicsCode">
 			<pc:mainObject>
 				<xsl:attribute namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#" name="resource">
 					<xsl:text>http://purl.org/weso/pscs/naics/2012/resource/</xsl:text>
-					<xsl:value-of select="NAICS"/>
+					<xsl:value-of select="$naicsCode"/>
 				</xsl:attribute>
 			</pc:mainObject>
 		</xsl:if>
