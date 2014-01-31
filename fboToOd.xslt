@@ -244,7 +244,7 @@
 											<xsl:with-param name="address" select="$awardee"/>
 										</xsl:call-template>
 
-										<xsl:analyze-string select="$awardee" regex="'.+[;,\s]+[A-Z]{2}[;,\s]+([\d-]+)([;,\s]+(USA?)?|)$'">
+										<xsl:analyze-string select="$awardee" regex=".+[;,\s]+[A-Z]{{2}}[;,\s]+([\d-]+)([;,\s]+(USA?)?|)$">
 											<xsl:matching-substring>
 												<s:postalCode>
 													<xsl:value-of select="regex-group(1)"/>
