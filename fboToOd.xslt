@@ -316,7 +316,7 @@
 
 	<xsl:template match="LINK">
 		<dcterms:source>
-			<xsl:apply-templates/>
+			<xsl:attribute name="rdf:resource" select="text()"/>
 		</dcterms:source>
 	</xsl:template>
 
