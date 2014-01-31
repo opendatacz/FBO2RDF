@@ -272,7 +272,7 @@
 									<xsl:text>USD</xsl:text>
 								</gr:hasCurrency>
 								<gr:hasCurrencyValue>
-									<xsl:attribute name="rdf:datatype">http://www.w3.org/2001/XMLSchema#float</xsl:attribute>
+									<xsl:attribute name="rdf:datatype">http://www.w3.org/2001/XMLSchema#decimal</xsl:attribute>
 									<xsl:value-of select="replace(AWDAMT/text(), '[^\d.]', '')"/>
 								</gr:hasCurrencyValue>
 							</gr:UnitPriceSpecification>
