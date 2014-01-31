@@ -79,7 +79,7 @@
 				<pc:referenceNumber>
 					<adms:Identifier>
 						<xsl:attribute name="rdf:about">
-							<xsl:value-of select="f:classURI('Identifier', fn:generate-id($fileReferenceNumber))"/>
+							<xsl:value-of select="f:classURI('Identifier', f:slugify($fileReferenceNumber))"/>
 						</xsl:attribute>
 						<skos:notation>
 							<xsl:value-of select="$fileReferenceNumber"/>
@@ -232,7 +232,7 @@
 					<adms:identifier>
 						<adms:Identifier>
 							<xsl:attribute name="rdf:about">
-								<xsl:value-of select="f:classURI('Identifier', fn:generate-id($tenderCode))"/>
+								<xsl:value-of select="f:classURI('Identifier', f:slugify($tenderCode))"/>
 							</xsl:attribute>
 							<skos:notation>
 								<xsl:value-of select="$tenderCode"/>
