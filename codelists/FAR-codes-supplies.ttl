@@ -6,475 +6,475 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme>
     dcterms:title "FAR codes: supplies"@en ;
     a skos:ConceptScheme .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/10>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/10>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "10" ;
     skos:prefLabel "Weapons"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/11>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/11>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "11" ;
     skos:prefLabel "Nuclear ordnance"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/12>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/12>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "12" ;
     skos:prefLabel "Fire control equipment"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/13>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/13>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "13" ;
     skos:prefLabel "Ammunition and explosives"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/14>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/14>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "14" ;
     skos:prefLabel "Guided missiles"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/15>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/15>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "15" ;
     skos:prefLabel "Aircraft and airframe structural components"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/16>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/16>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "16" ;
     skos:prefLabel "Aircraft components and accessories"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/17>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/17>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "17" ;
     skos:prefLabel "Aircraft launching, landing, and ground handling equipment"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/18>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/18>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "18" ;
     skos:prefLabel "Space vehicles"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/19>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/19>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "19" ;
     skos:prefLabel "Ships, small craft, pontoons, and floating docks"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/20>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/20>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "20" ;
     skos:prefLabel "Ship and marine equipment"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/22>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/22>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "22" ;
     skos:prefLabel "Railway equipment"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/23>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/23>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "23" ;
     skos:prefLabel "Motor vehicles, trailers, and cycles"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/24>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/24>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "24" ;
     skos:prefLabel "Tractors"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/25>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/25>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "25" ;
     skos:prefLabel "Vehicular equipment components"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/26>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/26>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "26" ;
     skos:prefLabel "Tires and tubes"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/28>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/28>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "28" ;
     skos:prefLabel "Engines, turbines, and components"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/29>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/29>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "29" ;
     skos:prefLabel "Engine accessories"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/30>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/30>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "30" ;
     skos:prefLabel "Mechanical power transmission equipment"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/31>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/31>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "31" ;
     skos:prefLabel "Bearings"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/32>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/32>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "32" ;
     skos:prefLabel "Woodworking machinery and equipment"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/34>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/34>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "34" ;
     skos:prefLabel "Metalworking machinery"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/35>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/35>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "35" ;
     skos:prefLabel "Service and trade equipment"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/36>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/36>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "36" ;
     skos:prefLabel "Special industry machinery"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/37>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/37>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "37" ;
     skos:prefLabel "Agricultural machinery and equipment"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/38>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/38>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "38" ;
     skos:prefLabel "Construction, mining, excavating, and highway maintenance equipment"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/39>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/39>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "39" ;
     skos:prefLabel "Materials handling equipment"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/40>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/40>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "40" ;
     skos:prefLabel "Rope, cable, chain, and fittings"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/41>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/41>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "41" ;
     skos:prefLabel "Refrigeration and air-conditioning equipment"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/42>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/42>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "42" ;
     skos:prefLabel "Fire fighting, rescue, and safety equipment"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/43>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/43>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "43" ;
     skos:prefLabel "Pumps and compressors"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/44>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/44>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "44" ;
     skos:prefLabel "Furnace, steam plant, and drying equipment and nuclear reactors"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/45>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/45>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "45" ;
     skos:prefLabel "Plumbing, heating, and sanitation equipment"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/46>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/46>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "46" ;
     skos:prefLabel "Water purification and sewage treatment equipment"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/47>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/47>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "47" ;
     skos:prefLabel "Pipe, tubing, hose, and fittings"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/48>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/48>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "48" ;
     skos:prefLabel "Valves"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/49>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/49>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "49" ;
     skos:prefLabel "Maintenance and repair shop equipment"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/51>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/51>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "51" ;
     skos:prefLabel "Hand tools"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/52>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/52>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "52" ;
     skos:prefLabel "Measuring tools"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/53>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/53>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "53" ;
     skos:prefLabel "Hardware and abrasives"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/54>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/54>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "54" ;
     skos:prefLabel "Prefabricated structures and scaffolding"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/55>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/55>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "55" ;
     skos:prefLabel "Lumber, millwork, plywood, and veneer"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/56>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/56>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "56" ;
     skos:prefLabel "Construction and building materials"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/58>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/58>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "58" ;
     skos:prefLabel "Communication equipment"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/59>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/59>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "59" ;
     skos:prefLabel "Electrical and electronic equipment components"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/60>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/60>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "60" ;
     skos:prefLabel "Fiber optics materials"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/61>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/61>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "61" ;
     skos:prefLabel "Electric wire, and power and distribution equipment"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/62>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/62>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "62" ;
     skos:prefLabel "Lighting fixtures and lamps"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/63>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/63>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "63" ;
     skos:prefLabel "Alarm and signal systems"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/65>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/65>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "65" ;
     skos:prefLabel "Medical, dental, and veterinary equipment and supplies"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/66>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/66>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "66" ;
     skos:prefLabel "Instruments and laboratory equipment"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/67>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/67>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "67" ;
     skos:prefLabel "Photographic equipment"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/68>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/68>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "68" ;
     skos:prefLabel "Chemicals and chemical products"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/69>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/69>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "69" ;
     skos:prefLabel "Training aids and devices"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/70>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/70>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "70" ;
     skos:prefLabel "General-purpose ADP equipment, software, supplies, and support equipment"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/71>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/71>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "71" ;
     skos:prefLabel "Furniture"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/72>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/72>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "72" ;
     skos:prefLabel "Household and commercial furnishings and appliances"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/73>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/73>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "73" ;
     skos:prefLabel "Food preparation and serving equipment"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/74>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/74>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "74" ;
     skos:prefLabel "Office machines"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/75>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/75>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "75" ;
     skos:prefLabel "Office supplies and devices"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/76>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/76>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "76" ;
     skos:prefLabel "Books, maps, and other publications"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/77>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/77>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "77" ;
     skos:prefLabel "Musical instruments, phonographs, and home-type radios"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/78>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/78>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "78" ;
     skos:prefLabel "Recreational and athletic equipment"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/79>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/79>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "79" ;
     skos:prefLabel "Cleaning equipment and supplies"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/80>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/80>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "80" ;
     skos:prefLabel "Brushes, paints, sealers, and adhesives"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/81>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/81>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "81" ;
     skos:prefLabel "Containers, packaging, and packing supplies"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/83>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/83>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "83" ;
     skos:prefLabel "Textiles, leather, furs, apparel and shoe findings, tents, and flags"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/84>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/84>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "84" ;
     skos:prefLabel "Clothing, individual equipment, and insignia"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/85>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/85>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "85" ;
     skos:prefLabel "Toiletries"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/87>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/87>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "87" ;
     skos:prefLabel "Agricultural supplies"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/88>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/88>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "88" ;
     skos:prefLabel "Live animals"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/89>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/89>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "89" ;
     skos:prefLabel "Subsistence"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/91>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/91>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "91" ;
     skos:prefLabel "Fuels, lubricants, oils, and waxes"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/93>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/93>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "93" ;
     skos:prefLabel "Nonmetallic fabricated materials"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/94>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/94>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "94" ;
     skos:prefLabel "Nonmetallic crude materials"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/95>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/95>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "95" ;
     skos:prefLabel "Metal bars, sheets, and shapes"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/96>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/96>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "96" ;
     skos:prefLabel "Ores, minerals, and their primary products"@en .
 
-<http://ld.opendata.cz/resource/far-codes/supplies/concept/99>
+<http://linked.opendata.cz/resource/far-codes/supplies/concept/99>
     a skos:Concept ;
-    skos:inScheme <http://ld.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
+    skos:inScheme <http://linked.opendata.cz/resource/far-codes/supplies/concept-scheme> ;
     skos:notation "99" ;
     skos:prefLabel "Miscellaneous"@en .
 
