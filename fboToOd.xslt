@@ -313,7 +313,7 @@
 
 	<xsl:template match="LINK">
 		<dcterms:source>
-			<xsl:attribute name="rdf:resource" select="text()"/>
+			<xsl:attribute name="rdf:resource" select="replace(text(), ' ', encode-for-uri(' '))"/>
 		</dcterms:source>
 	</xsl:template>
 
